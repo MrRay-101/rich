@@ -9,7 +9,9 @@ const userRouter = require("./routers/users");
 app.use("/users", userRouter);
 
 app.get("/", (req, res) => {
-  res.redirect("/users");
+  try {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  res.render('index', );
 });
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
